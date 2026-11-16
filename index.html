@@ -1,25 +1,37 @@
 <!--CSS-Codes-->
-<!DOCTYPE html>
-<style type="text/css">
-  p { color: red; }
+  <!-- unused
   h2 { 
   background-color: green;
   padding: 1em;
   border: 5px solid black;
   }
   h2, h3 { color: orange; }
-  table { font-size: 200 %; }
-</style>
-
-<!--Head-->
-<section>
+  table { font-size: 100%; }
+  body { margin: 0; }
+  -->
+<!DOCTYPE html>
 <html lang="de">
+  <!--Head-->
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Skalierungs-Settings-->
     <title>IPWA01-01</title>
-  </head>
-</section>
+    <style type="text/css">
+      #placeholder { color: red; }
 
-  <body>
+      header nav ul { text-align: right; font-size: 125%; }
+      header nav ul li { display: inline; }
+      nav ul { font-size: 125%; }
+      main { display: flex; width: 100%; }
+      main > section { width: 20%; background-color: #aaf; }
+      main div#content { width: 80%; background-color: #aff; }
+      table { font-size: 125%; }
+      footer { background-color: #faa; }
+      footer nav ul { text-align: center; }
+      footer nav ul li { display: inline; }
+    </style>
+  </head>
+
+ <body>
 
   <!--Header-->
   <section>
@@ -35,10 +47,13 @@
             <li><a href="https://www.instagram.com/WebAppStartup">Instagram</a></li>
             <li><a href="https://www.facebook.com/WebAppStartup">Facebook</a></li>
             <li><a href="contact.html">Kontakt</a></li>
+            <li>Sprache ändern</li>
           </ul>
         </nav>
       </header>
   </section>
+
+<main>
 
   <!--Navigation-->
   <section>
@@ -54,15 +69,19 @@
       </nav>
   </section>
 
+  <div id="content">
+
   <!--Intro-->
   <section>
     <h1>Unsere Mission</h1>
-      -tba-
+      <p id="placeholder">
+         Dies ist ein Platzhalter
+     </p>
   </section>
 
-  <!--Co2-Daten & Tabelle--> 
+  <!--Co2-Daten Länder & Tabelle--> 
   <section>
-    <h1>CO2-Austoßdaten</h1>
+    <h1>CO2-Austoßdaten der Länder</h1>
     <table>
     <thead>
       <tr>
@@ -79,7 +98,7 @@
       </tr>
       <tr>
         <td>USA</td>
-        <td>5275</td>
+        <td>5.275</td>
         <td>13,9</td>
       </tr>
       <tr>
@@ -126,7 +145,77 @@
   </table>
 <!--Quelle: https://www.co2online.de/klima-schuetzen/co2-ausstoss-der-laender/-->
   </section>  
-  
+
+  <!--Co2-Daten Unternehmen & Tabelle--> 
+  <section>
+    <h1>CO2-Austoßdaten der Unternehmen (2016-2022)</h1>
+    <table>
+    <thead>
+      <tr>
+        <th>Unternehmen</th>
+        <th>CO2-Emmissionen in Mio. Tonnen</th>
+        <th>Globaler Anteil in Prozent</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>China (Coal)</td>
+        <td>72.993</td>
+        <td>25,79</td>
+      </tr>
+      <tr>
+        <td>Saudi Aramco</td>
+        <td>13.256</td>
+        <td>4,84</td>
+      </tr>
+      <tr>
+        <td>Gazprom</td>
+        <td>10.127</td>
+        <td>3,26</td>
+      </tr>
+      <tr>
+        <td>Coal India</td>
+        <td>8.509</td>
+        <td>3,01</td>
+      </tr>
+      <tr>
+        <td>National Iranian Oil Co.</td>
+        <td>8.176</td>
+        <td>2,80</td>
+      </tr>
+      <tr>
+        <td>China (Cement)</td>
+        <td>8.155</td>
+        <td>3,21</td>
+      </tr>
+      <tr>
+        <td>Russian Federation</td>
+        <td>7.174</td>
+        <td>2,53</td>
+      </tr>
+      <tr>
+        <td>Rosneft</td>
+        <td>5.734</td>
+        <td>2,07</td>
+      </tr>
+      <tr>
+        <td>CNPC</td>
+        <td>4.966</td>
+        <td>1,71</td>
+      </tr>
+      <tr>
+        <td>Abu Dhabi National Oil Company</td>
+        <td>4.746</td>
+        <td>1,70</td>
+      </tr>
+    </tbody>
+  </table>
+<!--Quelle: https://kontrast.at/konzerne-co2-klima/-->
+  </section>  
+
+  </div>
+</main>
+
 <!--Footer-->
   <section>
     <h1>Footer</h1>
