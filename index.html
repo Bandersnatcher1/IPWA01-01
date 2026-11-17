@@ -16,6 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Skalierungs-Settings-->
     <title>IPWA01-01</title>
     <style type="text/css">
+
       #placeholder { color: red; }
 
       header nav ul { text-align: right; font-size: 125%; }
@@ -28,6 +29,11 @@
       footer { background-color: #faa; }
       footer nav ul { text-align: center; }
       footer nav ul li { display: inline; }
+
+      @media screen and (max-width: 767px) {
+      main { display: block; }
+      main > section, main div#content { width: 100%; }
+      }
     </style>
   </head>
 
@@ -71,147 +77,147 @@
 
   <div id="content">
 
-  <!--Intro-->
-  <section>
-    <h1>Unsere Mission</h1>
-      <p id="placeholder">
-         Dies ist ein Platzhalter
-     </p>
-  </section>
+    <!--Intro-->
+    <section>
+      <h1>Unsere Mission</h1>
+        <p id="placeholder">
+          Dies ist ein Platzhalter
+      </p>
+    </section>
 
-  <!--Co2-Daten Länder & Tabelle--> 
-  <section>
-    <h1>CO2-Austoßdaten der Länder</h1>
-    <table>
-    <thead>
-      <tr>
-        <th>Land</th>
-        <th>CO2-Emmissionen in Mio. Tonnen</th>
-        <th>Globaler Anteil in Prozent</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>China</td>
-        <td>11.256</td>
-        <td>29,7</td>
-      </tr>
-      <tr>
-        <td>USA</td>
-        <td>5.275</td>
-        <td>13,9</td>
-      </tr>
-      <tr>
-        <td>Indien</td>
-        <td>2.622</td>
-        <td>6,9</td>
-      </tr>
-      <tr>
-        <td>Russland</td>
-        <td>1.748</td>
-        <td>4,6</td>
-      </tr>
-      <tr>
-        <td>Japan</td>
-        <td>1.999</td>
-        <td>3,2</td>
-      </tr>
-      <tr>
-        <td>Deutschland</td>
-        <td>753</td>
-        <td>2,0</td>
-      </tr>
-      <tr>
-        <td>Iran</td>
-        <td>728</td>
-        <td>1,9</td>
-      </tr>
-      <tr>
-        <td>Südkorea</td>
-        <td>695</td>
-        <td>1,8</td>
-      </tr>
-      <tr>
-        <td>Saudi-Arabien</td>
-        <td>625</td>
-        <td>1,7</td>
-      </tr>
-      <tr>
-        <td>Kanada</td>
-        <td>594</td>
-        <td>1,6</td>
-      </tr>
-    </tbody>
-  </table>
-<!--Quelle: https://www.co2online.de/klima-schuetzen/co2-ausstoss-der-laender/-->
-  </section>  
+    <!--Co2-Daten Länder & Tabelle--> 
+    <section>
+      <h1>CO2-Austoßdaten der Länder</h1>
+      <table>
+      <thead>
+        <tr>
+          <th>Land</th>
+          <th>CO2-Emmissionen in Mio. Tonnen</th>
+          <th>Globaler Anteil in Prozent</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>China</td>
+          <td>11.256</td>
+          <td>29,7</td>
+        </tr>
+        <tr>
+          <td>USA</td>
+          <td>5.275</td>
+          <td>13,9</td>
+        </tr>
+        <tr>
+          <td>Indien</td>
+          <td>2.622</td>
+          <td>6,9</td>
+        </tr>
+        <tr>
+          <td>Russland</td>
+          <td>1.748</td>
+          <td>4,6</td>
+        </tr>
+        <tr>
+          <td>Japan</td>
+          <td>1.999</td>
+          <td>3,2</td>
+        </tr>
+        <tr>
+          <td>Deutschland</td>
+          <td>753</td>
+          <td>2,0</td>
+        </tr>
+        <tr>
+          <td>Iran</td>
+          <td>728</td>
+          <td>1,9</td>
+        </tr>
+        <tr>
+          <td>Südkorea</td>
+          <td>695</td>
+          <td>1,8</td>
+        </tr>
+        <tr>
+          <td>Saudi-Arabien</td>
+          <td>625</td>
+          <td>1,7</td>
+        </tr>
+        <tr>
+          <td>Kanada</td>
+          <td>594</td>
+          <td>1,6</td>
+        </tr>
+      </tbody>
+    </table>
+  <!--Quelle: https://www.co2online.de/klima-schuetzen/co2-ausstoss-der-laender/-->
+    </section>  
 
-  <!--Co2-Daten Unternehmen & Tabelle--> 
-  <section>
-    <h1>CO2-Austoßdaten der Unternehmen (2016-2022)</h1>
-    <table>
-    <thead>
-      <tr>
-        <th>Unternehmen</th>
-        <th>CO2-Emmissionen in Mio. Tonnen</th>
-        <th>Globaler Anteil in Prozent</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>China (Coal)</td>
-        <td>72.993</td>
-        <td>25,79</td>
-      </tr>
-      <tr>
-        <td>Saudi Aramco</td>
-        <td>13.256</td>
-        <td>4,84</td>
-      </tr>
-      <tr>
-        <td>Gazprom</td>
-        <td>10.127</td>
-        <td>3,26</td>
-      </tr>
-      <tr>
-        <td>Coal India</td>
-        <td>8.509</td>
-        <td>3,01</td>
-      </tr>
-      <tr>
-        <td>National Iranian Oil Co.</td>
-        <td>8.176</td>
-        <td>2,80</td>
-      </tr>
-      <tr>
-        <td>China (Cement)</td>
-        <td>8.155</td>
-        <td>3,21</td>
-      </tr>
-      <tr>
-        <td>Russian Federation</td>
-        <td>7.174</td>
-        <td>2,53</td>
-      </tr>
-      <tr>
-        <td>Rosneft</td>
-        <td>5.734</td>
-        <td>2,07</td>
-      </tr>
-      <tr>
-        <td>CNPC</td>
-        <td>4.966</td>
-        <td>1,71</td>
-      </tr>
-      <tr>
-        <td>Abu Dhabi National Oil Company</td>
-        <td>4.746</td>
-        <td>1,70</td>
-      </tr>
-    </tbody>
-  </table>
-<!--Quelle: https://kontrast.at/konzerne-co2-klima/-->
-  </section>  
+    <!--Co2-Daten Unternehmen & Tabelle--> 
+    <section>
+      <h1>CO2-Austoßdaten der Unternehmen (2016-2022)</h1>
+      <table>
+      <thead>
+        <tr>
+          <th>Unternehmen</th>
+          <th>CO2-Emmissionen in Mio. Tonnen</th>
+          <th>Globaler Anteil in Prozent</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>China (Coal)</td>
+          <td>72.993</td>
+          <td>25,79</td>
+        </tr>
+        <tr>
+          <td>Saudi Aramco</td>
+          <td>13.256</td>
+          <td>4,84</td>
+        </tr>
+        <tr>
+          <td>Gazprom</td>
+          <td>10.127</td>
+          <td>3,26</td>
+        </tr>
+        <tr>
+          <td>Coal India</td>
+          <td>8.509</td>
+          <td>3,01</td>
+        </tr>
+        <tr>
+          <td>National Iranian Oil Co.</td>
+          <td>8.176</td>
+          <td>2,80</td>
+        </tr>
+        <tr>
+          <td>China (Cement)</td>
+          <td>8.155</td>
+          <td>3,21</td>
+        </tr>
+        <tr>
+          <td>Russian Federation</td>
+          <td>7.174</td>
+          <td>2,53</td>
+        </tr>
+        <tr>
+          <td>Rosneft</td>
+          <td>5.734</td>
+          <td>2,07</td>
+        </tr>
+        <tr>
+          <td>CNPC</td>
+          <td>4.966</td>
+          <td>1,71</td>
+        </tr>
+        <tr>
+          <td>Abu Dhabi National Oil Company</td>
+          <td>4.746</td>
+          <td>1,70</td>
+        </tr>
+      </tbody>
+    </table>
+  <!--Quelle: https://kontrast.at/konzerne-co2-klima/-->
+    </section>  
 
   </div>
 </main>
