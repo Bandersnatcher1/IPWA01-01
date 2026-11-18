@@ -13,28 +13,11 @@
 <html lang="de">
   <!--Head-->
   <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Skalierungs-Settings-->
     <title>IPWA01-01</title>
-    <style type="text/css">
-
-      #placeholder { color: red; }
-
-      header nav ul { text-align: right; font-size: 125%; }
-      header nav ul li { display: inline; }
-      nav ul { font-size: 125%; }
-      main { display: flex; width: 100%; }
-      main > section { width: 20%; background-color: #aaf; }
-      main div#content { width: 80%; background-color: #aff; }
-      table { font-size: 125%; }
-      footer { background-color: #faa; }
-      footer nav ul { text-align: center; }
-      footer nav ul li { display: inline; }
-
-      @media screen and (max-width: 767px) {
-      main { display: block; }
-      main > section, main div#content { width: 100%; }
-      }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
   </head>
 
  <body>
@@ -53,7 +36,9 @@
             <li><a href="https://www.instagram.com/WebAppStartup">Instagram</a></li>
             <li><a href="https://www.facebook.com/WebAppStartup">Facebook</a></li>
             <li><a href="contact.html">Kontakt</a></li>
-            <li>Sprache ändern</li>
+            <li><button onclick="setdirection('ltr')">Deutsch</button></li>
+            <li><button onclick="setdirection('rtl')">Arabisch</button></li>
+            <!--<li><img src="language.png" alt="Sprache/Language" max-width = 2%></li>-->
           </ul>
         </nav>
       </header>
@@ -64,7 +49,7 @@
   <!--Navigation-->
   <section>
     <h1>Navigation</h1>
-      <nav>
+      <nav id="mainnavigation" dir="ltr">
         <ul>
           <li><a href="home.html">Homepage</a></li>
           <li><a href="services.html">Unsere Leistungen</a></li>
@@ -74,6 +59,8 @@
         </ul>
       </nav>
   </section>
+
+
 
   <div id="content">
 
@@ -87,140 +74,159 @@
 
     <!--Co2-Daten Länder & Tabelle--> 
     <section>
-      <h1>CO2-Austoßdaten der Länder</h1>
-      <table>
-      <thead>
-        <tr>
-          <th>Land</th>
-          <th>CO2-Emmissionen in Mio. Tonnen</th>
-          <th>Globaler Anteil in Prozent</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>China</td>
-          <td>11.256</td>
-          <td>29,7</td>
-        </tr>
-        <tr>
-          <td>USA</td>
-          <td>5.275</td>
-          <td>13,9</td>
-        </tr>
-        <tr>
-          <td>Indien</td>
-          <td>2.622</td>
-          <td>6,9</td>
-        </tr>
-        <tr>
-          <td>Russland</td>
-          <td>1.748</td>
-          <td>4,6</td>
-        </tr>
-        <tr>
-          <td>Japan</td>
-          <td>1.999</td>
-          <td>3,2</td>
-        </tr>
-        <tr>
-          <td>Deutschland</td>
-          <td>753</td>
-          <td>2,0</td>
-        </tr>
-        <tr>
-          <td>Iran</td>
-          <td>728</td>
-          <td>1,9</td>
-        </tr>
-        <tr>
-          <td>Südkorea</td>
-          <td>695</td>
-          <td>1,8</td>
-        </tr>
-        <tr>
-          <td>Saudi-Arabien</td>
-          <td>625</td>
-          <td>1,7</td>
-        </tr>
-        <tr>
-          <td>Kanada</td>
-          <td>594</td>
-          <td>1,6</td>
-        </tr>
-      </tbody>
-    </table>
-  <!--Quelle: https://www.co2online.de/klima-schuetzen/co2-ausstoss-der-laender/-->
+      <h1>CO₂-Ausstoßdaten der Länder (fiktiv)</h1>
+    <table>
+        <thead>
+          <tr>
+            <th>Land</th>
+            <th>CO₂-Emissionen in Mio. Tonnen</th>
+            <th>Globaler Anteil in Prozent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>China</td>
+            <td>10.400</td>
+            <td>26,0</td>
+          </tr>
+          <tr>
+            <td>USA</td>
+            <td>4.800</td>
+            <td>12,0</td>
+          </tr>
+          <tr>
+            <td>Indien</td>
+            <td>3.200</td>
+            <td>8,0</td>
+          </tr>
+          <tr>
+            <td>Russland</td>
+            <td>1.600</td>
+            <td>4,0</td>
+          </tr>
+          <tr>
+            <td>Japan</td>
+            <td>1.200</td>
+            <td>3,0</td>
+          </tr>
+          <tr>
+            <td>Deutschland</td>
+            <td>800</td>
+            <td>2,0</td>
+          </tr>
+          <tr>
+            <td>Iran</td>
+            <td>600</td>
+            <td>1,5</td>
+          </tr>
+          <tr>
+            <td>Südkorea</td>
+            <td>520</td>
+            <td>1,3</td>
+          </tr>
+          <tr>
+            <td>Saudi-Arabien</td>
+            <td>440</td>
+            <td>1,1</td>
+          </tr>
+          <tr>
+            <td>Kanada</td>
+            <td>360</td>
+            <td>0,9</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Alle Emissionswerte sind frei erfunden. Grundlage der Prozentangaben
+        ist eine fiktive globale Gesamtmenge von 40.000 Mio. Tonnen CO₂ für 
+        das Jahr 2025. Die Tabelle zeigt nur eine Auswahl der Länder.
+      </p>
     </section>  
 
     <!--Co2-Daten Unternehmen & Tabelle--> 
     <section>
-      <h1>CO2-Austoßdaten der Unternehmen (2016-2022)</h1>
-      <table>
-      <thead>
-        <tr>
-          <th>Unternehmen</th>
-          <th>CO2-Emmissionen in Mio. Tonnen</th>
-          <th>Globaler Anteil in Prozent</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>China (Coal)</td>
-          <td>72.993</td>
-          <td>25,79</td>
-        </tr>
-        <tr>
-          <td>Saudi Aramco</td>
-          <td>13.256</td>
-          <td>4,84</td>
-        </tr>
-        <tr>
-          <td>Gazprom</td>
-          <td>10.127</td>
-          <td>3,26</td>
-        </tr>
-        <tr>
-          <td>Coal India</td>
-          <td>8.509</td>
-          <td>3,01</td>
-        </tr>
-        <tr>
-          <td>National Iranian Oil Co.</td>
-          <td>8.176</td>
-          <td>2,80</td>
-        </tr>
-        <tr>
-          <td>China (Cement)</td>
-          <td>8.155</td>
-          <td>3,21</td>
-        </tr>
-        <tr>
-          <td>Russian Federation</td>
-          <td>7.174</td>
-          <td>2,53</td>
-        </tr>
-        <tr>
-          <td>Rosneft</td>
-          <td>5.734</td>
-          <td>2,07</td>
-        </tr>
-        <tr>
-          <td>CNPC</td>
-          <td>4.966</td>
-          <td>1,71</td>
-        </tr>
-        <tr>
-          <td>Abu Dhabi National Oil Company</td>
-          <td>4.746</td>
-          <td>1,70</td>
-        </tr>
-      </tbody>
-    </table>
-  <!--Quelle: https://kontrast.at/konzerne-co2-klima/-->
-    </section>  
+      <h1>CO₂-Ausstoßdaten der Unternehmen (2016-2022)</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Unternehmen / Produzentengruppe</th>
+              <th>CO₂-Emissionen in Mio. Tonnen</th>
+              <th>Globaler Anteil in Prozent</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>China (Coal)</td>
+              <td>9.200</td>
+              <td>23,00</td>
+            </tr>
+            <tr>
+              <td>Saudi Aramco</td>
+              <td>2.000</td>
+              <td>5,00</td>
+            </tr>
+            <tr>
+              <td>Gazprom</td>
+              <td>1.480</td>
+              <td>3,70</td>
+            </tr>
+            <tr>
+              <td>Coal India</td>
+              <td>1.280</td>
+              <td>3,20</td>
+            </tr>
+            <tr>
+              <td>National Iranian Oil Co.</td>
+              <td>1.160</td>
+              <td>2,90</td>
+            </tr>
+            <tr>
+              <td>China (Cement)</td>
+              <td>1.040</td>
+              <td>2,60</td>
+            </tr>
+            <tr>
+              <td>Russian Federation</td>
+              <td>880</td>
+              <td>2,20</td>
+            </tr>
+            <tr>
+              <td>Rosneft</td>
+              <td>760</td>
+              <td>1,90</td>
+            </tr>
+            <tr>
+              <td>CNPC</td>
+              <td>680</td>
+              <td>1,70</td>
+            </tr>
+            <tr>
+              <td>Abu Dhabi National Oil Company</td>
+              <td>560</td>
+              <td>1,40</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+        Alle Emissionswerte sind frei erfunden. Grundlage der Prozentangaben
+        ist eine fiktive globale Gesamtmenge von 40.000 Mio. Tonnen CO₂
+        für das Jahr 2025. Die Tabelle zeigt nur eine Auswahl der
+        Unternehmen und Produzentengruppen.
+        </p>
+    </section>
 
   </div>
 </main>
+
+
+ <!--Schriftkultur (Test)--> 
+  <script>
+    function setdirection(richtung) {
+      // Greift gezielt nur die Navigation anhand ihrer ID an
+      const nav = document.getElementById('mainnavigation');
+      nav.setAttribute('dir', richtung);
+    }
+  </script>
 
 <!--Footer-->
   <section>
@@ -237,6 +243,11 @@
 
   </body>
 </html>
+
+
+
+
+
 
 
 <!--    
