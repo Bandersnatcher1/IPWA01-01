@@ -14,4 +14,4 @@
     @media screen and (max-width: 767px) {
     main { display: block; }
     main > section, main div#content { width: 100%; }
-    } 
+    }
