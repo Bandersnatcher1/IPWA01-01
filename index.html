@@ -73,9 +73,16 @@
     </section>
 
     <!--Co2-Daten Länder & Tabelle--> 
+
     <section>
-      <h1>CO₂-Ausstoßdaten der Länder (fiktiv)</h1>
-    <table>
+      <h1>CO₂-Ausstoßdaten der Länder</h1>
+      
+       <!--Suchfeld für die erste Tabelle-->
+      <input type="text" id="tablesearch1" onkeyup="filterTable1()" placeholder="Tabelle durchsuchen...">
+          <!--input type: Erstellt Textfeld zur Eingabe mit einer eindeutigen ID-->
+          <!--onkeyup: Filtert Tabelle in Echtzeit via Funktion sobald eine Eingabe gemacht u. d. Taste auf der Tastatur gedrpückt wurde-->
+
+    <table id="table1">
         <thead>
           <tr>
             <th>Land</th>
@@ -144,9 +151,14 @@
     </section>  
 
     <!--Co2-Daten Unternehmen & Tabelle--> 
+
     <section>
-      <h1>CO₂-Ausstoßdaten der Unternehmen (2016-2022)</h1>
-        <table>
+      <h1>CO₂-Ausstoßdaten der Unternehmen</h1>
+
+      <!--Suchfeld für die zweite Tabelle-->
+      <input type="text" id="tablesearch2" onkeyup="filterTable2()" placeholder="Tabelle durchsuchen...">
+
+        <table id="table2">
           <thead>
             <tr>
               <th>Unternehmen / Produzentengruppe</th>
@@ -219,14 +231,8 @@
 </main>
 
 
- <!--Schriftkultur (Test)--> 
-  <script>
-    function setdirection(richtung) {
-      // Greift gezielt nur die Navigation anhand ihrer ID an
-      const nav = document.getElementById('mainnavigation');
-      nav.setAttribute('dir', richtung);
-    }
-  </script>
+ 
+
 
 <!--Footer-->
   <section>
@@ -240,6 +246,40 @@
       </nav>
     </footer>
   </section>
+
+
+  <script>
+    // Tabelle 1 Filterfunktion (Real Time Search)
+    function filterTable1() {
+      const insert = document.getElementById("tablesearch1").value.toLowerCase(); //Liest Textwert aus Eingabefeld und wandelt ihn in Kleinbuchstaben um
+      const row = document.querySelectorAll("#table1 tbody tr");                  //Wählt alle Zeilen in tbody aus und ignoriert Tabellenüberschrift
+
+      row.forEach(row => {                                                        //Prüft jede Zeile in der Tabelle (außer Überschrift)
+        const text = row.textContent.toLowerCase();                               //Und vergleich Eingabe mit Inhalt der Zeile welche ebenfalls in Kleinbuchstaben umgewandelt wurde
+        row.style.display = text.includes(insert) ? "" : "none";                  // Zeigt nur Zeile an, wenn der Suchbegriff vorkommt, ansonst ausblenden
+      });
+    }
+
+    // Tabelle 2 Filterfunktion (Real Time Search)
+    function filterTable2() {
+      const insert = document.getElementById("tablesearch2").value.toLowerCase();
+      const row = document.querySelectorAll("#table2 tbody tr");
+
+      row.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        // Zeigt nur die Zeile an, wenn der Suchbegriff vorkommt, ansonst ausblenden
+        row.style.display = text.includes(insert) ? "" : "none";
+      });
+    }
+
+    //Schriftkultur (Test)
+    function setdirection(richtung) {
+      // Greift gezielt nur die Navigation anhand ihrer ID an
+      const nav = document.getElementById('mainnavigation');
+      nav.setAttribute('dir', richtung);
+    }
+  </script>
+
 
   </body>
 </html>

@@ -1,17 +1,59 @@
     #placeholder { color: red; }
 
+    /*Header Properties*/
     header nav ul { text-align: right; font-size: 125%; }
     header nav ul li { display: inline; }
     nav ul { font-size: 125%; }
+
+    /*Main Properties*/
     main { display: flex; width: 100%; }
     main > section { width: 20%; background-color: #aaf; }
     main div#content { width: 80%; background-color: #aff; }
-    table { font-size: 125%; }
-    footer { background-color: #faa; }
-    footer nav ul { text-align: center; }
-    footer nav ul li { display: inline; }
+    
+    /*Table Properties*/
+    table { 
+        font-size: 125%;                /*Schriftgröße*/
+        width: 100%;                    /*Breite der Spalten*/
+        border-collapse: collapse;      /*Zellenränder*/
+        text-align: left;               /*Linksbündiger Text*/
+    }
 
-    @media screen and (max-width: 767px) {
+    th, td {
+        padding: 14px 18px;                     /*Abstand zum Rand in Überschrift und Zellen*/
+        border-bottom: 1px solid #e5e7eb;     /*Rand nur an der Unterseite der Zeilen zur Hervorhebung*/
+    }
+
+    th {
+        background-color: #f3f4f6;
+        color: #374151;
+        font-weight: bold;    /*Tabellenüberschrift in Fett*/
+        cursor: pointer;      /*Cursor-Design bei Mouseover der Tabellenüberschrift um filtern anzuzeigen (kosmetisch)*/
+        user-select: none;    /*Verhindert das markieren oder auswählen der Tabellenüberschrift (kosmetisch)*/
+    }
+
+    th:hover {                          /*Experimentieren mit Pseudoklassen*/
+        background-color: #e5e7eb;    /*Hebt die Tabellenüberschrift beim Hovern mit der Maus hervor*/
+    }
+
+    tbody tr:hover {
+        background-color: #eff6ff;    /*Hebt die Spalten innerhalb des Tabellenbodys beim Hovern mit der Maus hervor*/
+    }
+
+    /*Footer Properties*/
+    footer { 
+        background-color: #faa; 
+    }
+
+    footer nav ul { 
+        text-align: center; 
+    }
+
+    footer nav ul li { 
+        display: inline; 
+    }
+
+    /*Responsiveness*/
+    @media screen and (max-width: 767px) {              /*Momentan nur für Smartphone & Desktop*/
     main { display: block; }
     main > section, main div#content { width: 100%; }
     }
