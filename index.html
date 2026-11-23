@@ -1,14 +1,3 @@
-<!--CSS-Codes-->
-  <!-- unused
-  h2 { 
-  background-color: green;
-  padding: 1em;
-  border: 5px solid black;
-  }
-  h2, h3 { color: orange; }
-  table { font-size: 100%; }
-  body { margin: 0; }
-  -->
 <!DOCTYPE html>
 <html lang="de">
   <!--Head-->
@@ -20,12 +9,13 @@
     <link rel="stylesheet" href="style.css">
   </head>
 
-
  <body>
 
   <!--Header-->
   <section>
-    <h1>Header</h1>
+    <a href="index.html">
+|     <img src="logo.png" alt="Logo der Non-Profit Organisation" height="100">
+    </a>
     <header>
         <nav>
           <ul>
@@ -53,22 +43,21 @@
     <h1>Navigation</h1>
       <nav id="mainnavigation" dir="ltr">
         <ul>
-          <li><a href="home.html">Homepage</a></li>
-          <li><a href="services.html">Unsere Leistungen</a></li>
-          <li><a href="products.html">Unsere Produkte</a></li>
-          <li><a href="prices.html">Unsere Preise</a></li>
-          <li><a href="about.html">Über uns</a></li>
+          <li><a href="#startArea">Startseite</a></li>
+          <li><a href="#emissionCountry">CO₂-Emissionen von Ländern</a></li>
+          <li><a href="#emissionCompany">CO₂-Emissionen von Unternehmen</a></li>
+          <li><a href="#aboutUs">Über uns</a></li>
+          <li><a href="#furtherInformation">Weitere Informationen</a></li>
         </ul>
       </nav>
   </section>
 
 
-
   <div id="content">
 
     <!--Intro-->
-    <section>
-      <h1>Unsere Mission</h1>
+    <section id="startArea">
+      <h1>Einleitung</h1>
         <p id="placeholder">
           Dies ist ein Platzhalter
       </p>
@@ -76,7 +65,7 @@
 
     <!--Co2-Daten Länder & Tabelle--> 
 
-    <section>
+    <section id="emissionCountry">
       <h1>CO₂-Ausstoßdaten der Länder</h1>
       
        <!--Suchfeld für die erste Tabelle-->
@@ -155,7 +144,7 @@
 
     <!--Co2-Daten Unternehmen & Tabelle--> 
 
-    <section>
+    <section id="emissionCompany">
       <h1>CO₂-Ausstoßdaten der Unternehmen</h1>
 
       <!--Suchfeld für die zweite Tabelle-->
@@ -233,17 +222,20 @@
   </div>
 </main>
 
-
+  <section id="aboutUs">
+    <h1>Über uns</h1>
+  </section>
 
 
 <!--Footer-->
-  <section>
+  <section id="furtherInformation">
     <h1>Footer</h1>
     <footer>
       <nav>
         <ul>
           <li><a href="privacy.html">Datenschutz</a></li>
           <li><a href="imprint.html">Impressum</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
         </ul>
       </nav>
     </footer>
@@ -255,20 +247,3 @@
 
   </body>
 </html>
-
-
-
-
-
-
-
-<!--    
-<p id="text">
-    Test für Javascript: Wir konzipieren und implementieren fantastische Web-Applikationen!
-    <script>
-    // JavaScript-Code direkt im Dokument
-    document.getElementById("text").innerText = "Test für Javascript: Dieser Text wurde durch JavaScript geändert!";
-  </script>
-
-  </script>
-  </p>-->
