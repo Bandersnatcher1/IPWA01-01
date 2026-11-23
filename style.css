@@ -11,6 +11,16 @@
     main div#content { width: 80%; background-color: #aff; }
     
     /*Table Properties*/
+    .searchfield1, .searchfield2 {
+      width: 100%;
+      max-width: 350px;
+      padding: 10px 14px;
+      margin-bottom: 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px 25px;
+      font-size: 1rem;
+    }
+
     table { 
         font-size: 125%;                /*Schriftgröße*/
         width: 100%;                    /*Breite der Spalten*/
@@ -29,6 +39,14 @@
         font-weight: bold;    /*Tabellenüberschrift in Fett*/
         cursor: pointer;      /*Cursor-Design bei Mouseover der Tabellenüberschrift um filtern anzuzeigen (kosmetisch)*/
         user-select: none;    /*Verhindert das markieren oder auswählen der Tabellenüberschrift (kosmetisch)*/
+    }
+
+    th[aria-sort="ascending"]::after {      /*Pfeile für die Tabellenüberschriften, um die Sortierrichtung anzuzeigen*/
+        content: "▲";
+    }
+
+    th[aria-sort="descending"]::after {     /*Pfeile für die Tabellenüberschriften, um die Sortierrichtung anzuzeigen*/
+        content: "▼";
     }
 
     th:hover {                          /*Experimentieren mit Pseudoklassen*/
