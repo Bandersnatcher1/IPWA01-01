@@ -11,7 +11,7 @@
     main div#content { width: 80%; background-color: #aff; }
     
     /*Table Properties*/
-    .searchfield1, .searchfield2 {
+    .countrySearchField, .companySearchField {
       width: 100%;
       max-width: 350px;
       padding: 10px 14px;

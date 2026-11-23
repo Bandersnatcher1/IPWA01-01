@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="style.css">
   </head>
 
+
  <body>
 
   <!--Header-->
@@ -29,9 +30,10 @@
         <nav>
           <ul>
             <li>
-              <form>
-                <input type="text" name="suche" placeholder="Suche">
+              <form id="headerSearchForm">
+                <input type="text" id="headerSearch" maxlength="50" placeholder="Suche">
               </form>
+              <p id="searchResult"></p>
             </li>
             <li><a href="https://www.instagram.com/WebAppStartup">Instagram</a></li>
             <li><a href="https://www.facebook.com/WebAppStartup">Facebook</a></li>
@@ -78,7 +80,7 @@
       <h1>CO₂-Ausstoßdaten der Länder</h1>
       
        <!--Suchfeld für die erste Tabelle-->
-      <input type="text" id="tablesearch1" class="searchfield1" onkeyup="filterCountryTable()" placeholder="Tabelle durchsuchen...">
+      <input type="text" id="searchCountry" maxlength="50" class="countrySearchField" oninput="filterTable('countryTable', 'searchCountry')" placeholder="Tabelle durchsuchen...">
           <!--input type: Erstellt Textfeld zur Eingabe mit einer eindeutigen ID-->
           <!--onkeyup: Filtert Tabelle in Echtzeit via Funktion sobald eine Eingabe gemacht u. d. Taste auf der Tastatur gedrpückt wurde-->
           <!--Class referenziert zur CSS-Datei und legt den Style der Suchleiste fest-->
@@ -157,7 +159,7 @@
       <h1>CO₂-Ausstoßdaten der Unternehmen</h1>
 
       <!--Suchfeld für die zweite Tabelle-->
-      <input type="text" id="tablesearch2" class="searchfield2" onkeyup="filterTable2()" placeholder="Tabelle durchsuchen...">
+      <input type="text" id="searchCompany" maxlength="50" class="companySearchField" oninput="filterTable('companyTable', 'searchCompany')" placeholder="Tabelle durchsuchen...">
 
         <table id="companyTable">
           <thead>
@@ -232,7 +234,6 @@
 </main>
 
 
- 
 
 
 <!--Footer-->
@@ -249,97 +250,7 @@
   </section>
 
 
-  <script>
-    // Tabelle 1 Filterfunktion (Real Time Search)
-    function filterCountryTable() {
-      const insert = document.getElementById("tablesearch1").value.toLowerCase(); //Liest Textwert aus Eingabefeld und wandelt ihn in Kleinbuchstaben um
-      const row = document.querySelectorAll("#countryTable tbody tr");            //Wählt alle Zeilen in tbody aus und ignoriert Tabellenüberschrift
-
-      row.forEach(row => {                                                        //Prüft jede Zeile in der Tabelle (außer Überschrift)
-        const text = row.textContent.toLowerCase();                               //Und vergleich Eingabe mit Inhalt der Zeile welche ebenfalls in Kleinbuchstaben umgewandelt wurde
-        row.style.display = text.includes(insert) ? "" : "none";                  // Zeigt nur Zeile an, wenn der Suchbegriff vorkommt, ansonst ausblenden
-      });
-    }
-
-    // Tabelle 2 Filterfunktion (Real Time Search)
-    function filterTable2() {
-      const insert = document.getElementById("tablesearch2").value.toLowerCase();
-      const row = document.querySelectorAll("#table2 tbody tr");
-
-      row.forEach(row => {
-        const text = row.textContent.toLowerCase();
-        row.style.display = text.includes(insert) ? "" : "none";
-      });
-    }
-
-  
-    // Sortierfunktion für beide Tabellen
-      const sortDirections = {};                              //Speichert für jede Tabelle welche Sortierrichtung zuletzt benutzt wurde
-
-    function sortTable(tableId, columnIndex) {                //Funktion, die die jeweilige Tabelle über die ID sucht
-      const table = document.getElementById(tableId);         //Auslesen der jeweiligen Tabelle über die ID
-      const tbody = table.querySelector("tbody");             //Auslesen der jeweiligen Daten in tbody der jeweiligen Tabelle
-      const key = tableId + "-" + columnIndex;                //Unter "key" wird für jede Tabellenspalte die jeweilige Sortierrichtung gespeichert
-      const ascending = sortDirections[key] === false;        //Prüft, ob zuletzt absteigend sortiert wurde
-      sortDirections[key] = ascending;
-      const rows = Array.from(tbody.querySelectorAll("tr"));  //Erstellt aus der Zeilenliste ein Array zum sortieren
-    
-
-    rows.sort((rowA, rowB) => {                                     //Vergleicht jeweils zwei Zeilentexte der jeweiligen Tabelle miteinander
-      const textA = rowA.children[columnIndex].textContent.trim();  //Leerzeichen am Anfang und Ende der Zeilentexte werden entfernt
-      const textB = rowB.children[columnIndex].textContent.trim();
-
-      const numberA = parseGermanNumber(textA);                           //textA wird in parseNumber übergeben und nach Durchlauf der Hilfsfunktion bereinigt zurückgegeben
-      const numberB = parseGermanNumber(textB);
-
-      if (!isNaN(numberA) && !isNaN(numberB)) {                      //Nur wenn beide Werte Zahlen sind, werden sie miteinander verglichen, ansonsten wird auf den Textvergleich unten zurückgegriffen
-        return ascending ? numberA - numberB : numberB - numberA;    //Wenn "ascending" wahr ist, wird A vorangestellt, wenn es negativ ist, ansonsten umgekehrt
-      }
-
-        return ascending ? textA.localeCompare(textB, "de") : textB.localeCompare(textA, "de");
-    });
-
-
-    rows.forEach(row => tbody.appendChild(row));                    //Hängt jede Zeile in der neuen Reihenfolge an den tbody, Zeile wird hier nur verschoben und nicht kopiert
-
-    //Pfeile für die Sortierreihenfolge in den Tabellenüberschriften
-    const headerCells = table.querySelectorAll("thead th");
-    headerCells.forEach((cell, index) => {
-      cell.removeAttribute("aria-sort");                                        //Entfernen des Attributs um mehrere Pfeile zu vermeiden
-      if (index === columnIndex) {
-        cell.setAttribute("aria-sort", ascending ? "ascending" : "descending"); //Setzen der Pfeile in der Überschrift, deren Spalte gerade sortiert wurde
-      }
-    });
-
-    }
-
-
-    function connectHeaders(tableId) {
-      const table = document.getElementById(tableId);           //Liest die ID der Tabelle aus und speichert sie in "table"
-      const headers = table.querySelectorAll("thead th");       //Sucht alle Spaltenüberschriften aus dem Tabellenkopf und speichert sie in einer Liste
-
-      headers.forEach((header, index) => {                       //Für jede Tabellenüberschrift wird die Funktion ausgeführt und es werden die Überschrift und die Indexnummer gesetzt
-        header.addEventListener("click", () => {                //Fügt der Tabellenüberschrift die Klick-Funktion hinzu
-          sortTable(tableId, index);                            
-        });
-      });
-    }
-
-    connectHeaders("countryTable");
-    connectHeaders("companyTable");
-
-    //Hilfsfunktion zum Sortieren von Zahlen
-    function parseGermanNumber(text) {
-      return parseFloat(text.replace(/\./g, "").replace(",", "."));   //Entfernt alle Punkte und Kommas aus den Zahlen un Texten. Mit parseFloat wird der bereinigte Text in Zahlen umgewandelt, bei reinem Text ohne Ziffern wird nichts gemacht (NaN)
-    }
-
-    //Schriftkultur (Test)
-    function setdirection(richtung) {
-      // Greift gezielt nur die Navigation anhand ihrer ID an
-      const nav = document.getElementById('mainnavigation');
-      nav.setAttribute('dir', richtung);
-    }
-  </script>
+  <script src="script.js"></script>
 
 
   </body>
