@@ -14,7 +14,7 @@
   <!--Header-->
   <section>
     <a href="index.html">
-|     <img src="logo.png" alt="Logo der Non-Profit Organisation" height="100">
+     <img id="logo" src="logo.png" alt="Logo der Non-Profit Organisation">
     </a>
     <header>
         <nav>
@@ -25,8 +25,8 @@
               </form>
               <p id="searchResult"></p>
             </li>
-            <li><a href="https://www.instagram.com/WebAppStartup">Instagram</a></li>
-            <li><a href="https://www.facebook.com/WebAppStartup">Facebook</a></li>
+            <li><a href="https://www.instagram.com/ZentralbürofürPlanetareAbkühlung">Instagram</a></li>
+            <li><a href="https://www.facebook.com/ZentralbürofürPlanetareAbkühlung">Facebook</a></li>
             <li><a href="contact.html">Kontakt</a></li>
             <li><button onclick="setdirection('ltr')">Deutsch</button></li>
             <li><button onclick="setdirection('rtl')">Arabisch</button></li>
@@ -40,10 +40,11 @@
 
   <!--Navigation-->
   <section>
-    <h1>Navigation</h1>
-      <nav id="mainnavigation" dir="ltr">
+    <h3>Navigation</h3>
+      <nav id="mainNavigation" dir="ltr">
         <ul>
           <li><a href="index.html">Startseite</a></li>
+          <li><a href="index.html#startArea">Einleitung</a></li>
           <li><a href="index.html#emissionCountry">CO₂-Emissionen von Ländern</a></li>
           <li><a href="index.html#emissionCompany">CO₂-Emissionen von Unternehmen</a></li>
           <li><a href="index.html#aboutUs">Über uns</a></li>
@@ -58,14 +59,37 @@
     <!--Intro-->
     <section id="imprintArea">
       <h1>Impressum</h1>
-        <p id="placeholder">
-          Dies ist ein Platzhalter
-      </p>
+        <div>
+          <h4>Anbieter</h4>
+            Zentralbüro für Planetare Abkühlung (ZfPA)<br>
+            Neu-New-Yorker-Straße 7<br>
+            12345 Neu-New York<br>
+          <br>
+          <h4>Vertreten durch den Vorstand nach § 26 BGB</h4>
+            Mara Beispiel (Vorsitzende)<br>
+            Tobias Mustermann (stellvertretender Vorsitzender)<br>
+            Erreichbar unter der Anschrift des Vereins.<br>
+          <br>
+          <h4>Kontakt</h4>
+            E-Mail: kontakt@zentralbuero-fuer-planetare-abkuehlung.example<br>
+            Telefon: 01234 567800<br>
+          <br>
+          <h4>Registereintrag</h4>
+            Amtsgericht Neu-New York, VR 4321<br>
+          <br>
+          <h4>Verantwortlich für redaktionelle Inhalte nach § 18 Abs. 2 MStV</h4>
+            Mara Beispiel (Vorsitzende)<br>
+            Musterweg 7<br>
+            12345 Neu-New York<br>
+          <br>
+          <h4>Haftungshinweis</h4>
+            Die auf dieser Webseite veröffentlichten Emissionsdaten sind fiktiv und dienen ausschließlich Demonstrationszwecken. 
+            Sie stellen keine offiziellen Angaben von Ländern oder Unternehmen dar.
+        </div>
     </section>
 
     <!--Footer-->
   <section id="furtherInformation">
-    <h1>Footer</h1>
     <footer>
       <nav>
         <ul>

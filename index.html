@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Skalierungs-Settings-->
-    <title>IPWA01-01</title>
+    <title>Zentralbüro für Planetare Abkühlung - Startseite</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
   </head>
@@ -14,7 +14,7 @@
   <!--Header-->
   <section>
     <a href="index.html">
-|     <img src="logo.png" alt="Logo der Non-Profit Organisation" height="100">
+     <img id="logo" src="logo.png" alt="Logo der Non-Profit Organisation">
     </a>
     <header>
         <nav>
@@ -25,8 +25,8 @@
               </form>
               <p id="searchResult"></p>
             </li>
-            <li><a href="https://www.instagram.com/WebAppStartup">Instagram</a></li>
-            <li><a href="https://www.facebook.com/WebAppStartup">Facebook</a></li>
+            <li><a href="https://www.instagram.com/ZentralbürofürPlanetareAbkühlung">Instagram</a></li>
+            <li><a href="https://www.facebook.com/ZentralbürofürPlanetareAbkühlung">Facebook</a></li>
             <li><a href="contact.html">Kontakt</a></li>
             <li><button onclick="setdirection('ltr')">Deutsch</button></li>
             <li><button onclick="setdirection('rtl')">Arabisch</button></li>
@@ -40,10 +40,11 @@
 
   <!--Navigation-->
   <section>
-    <h1>Navigation</h1>
-      <nav id="mainnavigation" dir="ltr">
+    <h3>Navigation</h3>
+      <nav id="mainNavigation" dir="ltr">
         <ul>
-          <li><a href="#startArea">Startseite</a></li>
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="#startArea">Einleitung</a></li>
           <li><a href="#emissionCountry">CO₂-Emissionen von Ländern</a></li>
           <li><a href="#emissionCompany">CO₂-Emissionen von Unternehmen</a></li>
           <li><a href="#aboutUs">Über uns</a></li>
@@ -58,11 +59,20 @@
     <!--Intro-->
     <section id="startArea">
       <h1>Einleitung</h1>
-        <p id="placeholder">
-          Dies ist ein Platzhalter
+        <p>
+          Klimawandel betrifft uns alle, aber wer wie viel zu den Treibhausgasen beiträgt, ist im Alltag kaum sichtbar. 
+          Wer heute wissen möchte, welche Länder und welche Unternehmen die größten CO₂-Mengen ausstoßen, muss oft lange 
+          Berichte durchsuchen. Genau hier setzt das <b>Zentralbüro für Planetare Abkühlung (ZfPA)</b> an. 
+          <br><br>
+          Wir machen Emissionsdaten übersichtlich zugänglich, damit Bürgerinnen und Bürger, Medien und Entscheidungsträger 
+          auf einen Blick erkennen, wo die größten Hebel liegen. 
+          <br><br>
+          Auf dieser Seite finden Sie Tabellen mit Emissionswerten für Länder und Unternehmen. Sie lassen sich sortieren und 
+          durchsuchen, damit Sie die Daten genau so auswerten können, wie Sie es brauchen.
       </p>
     </section>
 
+  
     <!--Co2-Daten Länder & Tabelle--> 
 
     <section id="emissionCountry">
@@ -73,7 +83,7 @@
           <!--input type: Erstellt Textfeld zur Eingabe mit einer eindeutigen ID-->
           <!--onkeyup: Filtert Tabelle in Echtzeit via Funktion sobald eine Eingabe gemacht u. d. Taste auf der Tastatur gedrpückt wurde-->
           <!--Class referenziert zur CSS-Datei und legt den Style der Suchleiste fest-->
-
+    <div class="table-wrapper">
     <table id="countryTable">
         <thead>
           <tr>
@@ -86,61 +96,63 @@
           <tr>
             <td>China</td>
             <td>10.400</td>
-            <td>26,0</td>
+            <td>26,00</td>
           </tr>
           <tr>
             <td>USA</td>
             <td>4.800</td>
-            <td>12,0</td>
+            <td>12,00</td>
           </tr>
           <tr>
             <td>Indien</td>
             <td>3.200</td>
-            <td>8,0</td>
+            <td>8,00</td>
           </tr>
           <tr>
             <td>Russland</td>
             <td>1.600</td>
-            <td>4,0</td>
+            <td>4,00</td>
           </tr>
           <tr>
             <td>Japan</td>
             <td>1.200</td>
-            <td>3,0</td>
+            <td>3,00</td>
           </tr>
           <tr>
             <td>Deutschland</td>
             <td>800</td>
-            <td>2,0</td>
+            <td>2,00</td>
           </tr>
           <tr>
             <td>Iran</td>
             <td>600</td>
-            <td>1,5</td>
+            <td>1,50</td>
           </tr>
           <tr>
             <td>Südkorea</td>
             <td>520</td>
-            <td>1,3</td>
+            <td>1,30</td>
           </tr>
           <tr>
             <td>Saudi-Arabien</td>
             <td>440</td>
-            <td>1,1</td>
+            <td>1,10</td>
           </tr>
           <tr>
             <td>Kanada</td>
             <td>360</td>
-            <td>0,9</td>
+            <td>0,90</td>
           </tr>
         </tbody>
       </table>
+      </div>
       <p>
         Alle Emissionswerte sind frei erfunden. Grundlage der Prozentangaben
         ist eine fiktive globale Gesamtmenge von 40.000 Mio. Tonnen CO₂ für 
         das Jahr 2025. Die Tabelle zeigt nur eine Auswahl der Länder.
       </p>
     </section>  
+
 
     <!--Co2-Daten Unternehmen & Tabelle--> 
 
@@ -149,11 +161,11 @@
 
       <!--Suchfeld für die zweite Tabelle-->
       <input type="text" id="searchCompany" maxlength="50" class="companySearchField" oninput="filterTable('companyTable', 'searchCompany')" placeholder="Tabelle durchsuchen...">
-
+        <div class="table-wrapper">
         <table id="companyTable">
           <thead>
             <tr>
-              <th>Unternehmen / Produzentengruppe</th>
+              <th>Unternehmen</th>
               <th>CO₂-Emissionen in Mio. Tonnen</th>
               <th>Globaler Anteil in Prozent</th>
             </tr>
@@ -211,6 +223,7 @@
             </tr>
           </tbody>
         </table>
+        </div>
         <p>
         Alle Emissionswerte sind frei erfunden. Grundlage der Prozentangaben
         ist eine fiktive globale Gesamtmenge von 40.000 Mio. Tonnen CO₂
@@ -222,14 +235,27 @@
   </div>
 </main>
 
+
+
   <section id="aboutUs">
     <h1>Über uns</h1>
+    <p>Das <b>Zentralbüro für Planetare Abkühlung (ZfPA)</b> ist eine gemeinnützige Organisation, die sich für mehr Transparenz beim Klimaschutz 
+      einsetzt. Wir glauben, dass fundierte Informationen die Grundlage für gute Entscheidungen sind, nicht nur im Privaten, sondern 
+      auch in der Politik. 
+      <br><br>
+      Unser Team besteht aus Fachleuten für Umwelt, Datenaufbereitung und Webentwicklung, die ehrenamtlich und mit öffentlichen 
+      Mitteln arbeiten. In enger Zusammenarbeit mit <b>Rettet die dreiäugigen Fische e.V.</b> kämpfen wir für ein besseres Morgen.
+      <br><br>
+      Wir sind unabhängig von Industrie und Wirtschaft. Die Daten auf unserer Webseite wurden zu Demonstrationszwecken frei erfunden.
+      <br><br>
+      Wenn Sie Fragen haben, Fehler entdecken oder mit uns zusammenarbeiten möchten, freuen 
+      wir uns über Ihre Nachricht über die Kontaktseite.</p>
   </section>
+
 
 
 <!--Footer-->
   <section id="furtherInformation">
-    <h1>Footer</h1>
     <footer>
       <nav>
         <ul>

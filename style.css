@@ -1,14 +1,98 @@
-    #placeholder { color: red; }
+   #placeholder {
+    color: red;
+   }
+   /*Color Properties*/
+   :root {
+    --color-primary: #1F4D3A;
+    --color-accent: #2E8B57;
+    --color-background: #F2F9F8;
+    --color-text: #1F2A24;
+    --color-table-head: #E3EFE8;
+    --color-error: #9B2226;
+   }
+
+   body {
+        background-color: var(--color-background);
+        color: var(--color-text);
+   }
+
+   header, footer {
+        background-color: var(--color-primary);
+        color: #ffffff;
+   }
+
+   footer a, header b {
+        color: #ffffff;
+   }
+
+   th {
+        background-color: var(--color-table-head);
+   }
+
+   #formOutput {
+        color: var(--color-text);
+   }
+   
+   /*General Properties*/
+    *, *::before, *::after {        /*Alle Elemente der Seite und unsichtbare Zusatzelemente (Pfeile in der Tabelle) werden ausgewählt*/
+        box-sizing: border-box;     /*width umfasst Inhalt, Innenabstand und Rahmen zusammen*/
+    } 
+
+    section {
+        margin-bottom: 3rem;    /*Abstand unter jedem Abschnitt*/
+    }
+
+    section > h1:first-child {
+        margin-top: 0;          /*Keine zusätzliche Lücke über dr Überschrift*/
+    }
+
+    /*Body properties*/
+    body {
+        max-width: 1200px;      /*Begrenzt die Seite auf dem Desktop-Bildschirm*/
+        margin: 0 auto;         /*Zentriert die Seite*/
+        padding: 0 1rem;        /*Sorgt in der Smartphone-Ansicht für einen kleineren Rand*/
+    }
+
+    /*Logo Properties*/
+    #logo {
+        display: block;     /*Logo steht auf eigener Zeile*/
+        max-width: 100%;    /*Logo höchstens so breit wie sein Container und bleibt bei Smartphone-Ansicht innerhalb des Rands*/
+        height: auto;       /*Berechnet die Höhe des Bilds aus dem ursprünglichen Seitenverhältnis*/
+    }
 
     /*Header Properties*/
-    header nav ul { text-align: right; font-size: 125%; }
-    header nav ul li { display: inline; }
-    nav ul { font-size: 125%; }
+    header nav ul { 
+        display: flex;              /*Anordnung der Elemente in einer Reihe statt untereinander*/
+        flex-wrap: wrap;            /*Elemente rutschen in eine neue Zeile wenn sie nicht nebeneinander passen*/
+        justify-content: flex-end;  /*Ausrichtung der Elemente nach rechts*/
+        gap: 0.5rem;                /*Erzeugt einen Abstand zwischen den Elementen*/
+        list-style: none;           /*Entfernt Aufzählungszeichen vor dem Elementen*/
+        padding: 0;                 /*Entfernt den linksbündigen Einzug*/
+    }
+
+    header nav ul li { 
+        display: inline; 
+    }
+    nav ul { 
+        font-size: 125%; 
+    }
+
+    /*Navigation Properties*/
+    #mainNavigation {
+        position: sticky; top: 0;
+    }
 
     /*Main Properties*/
-    main { display: flex; width: 100%; }
-    main > section { width: 20%; background-color: #aaf; }
-    main div#content { width: 80%; background-color: #aff; }
+    main { 
+        display: flex; 
+        width: 100%; 
+    }
+    main > section { 
+        width: 30%; 
+    }
+    main div#content { 
+        width: 70%; 
+    }
     
     /*Table Properties*/
     .countrySearchField, .companySearchField {
@@ -21,8 +105,12 @@
       font-size: 1rem;
     }
 
+    .table-wrapper {
+        overflow-x: auto;       /*Tabelle wird bei Bedarf in horizontaler Richtung scrollbar*/
+    }
+
     table { 
-        font-size: 125%;                /*Schriftgröße*/
+        font-size: 1rem;                /*Schriftgröße*/
         width: 100%;                    /*Breite der Spalten*/
         border-collapse: collapse;      /*Zellenränder*/
         text-align: left;               /*Linksbündiger Text*/
@@ -34,7 +122,6 @@
     }
 
     th {
-        background-color: #f3f4f6;
         color: #374151;
         font-weight: bold;    /*Tabellenüberschrift in Fett*/
         cursor: pointer;      /*Cursor-Design bei Mouseover der Tabellenüberschrift um filtern anzuzeigen (kosmetisch)*/
@@ -58,10 +145,6 @@
     }
 
     /*Footer Properties*/
-    footer { 
-        background-color: #faa; 
-    }
-
     footer nav ul { 
         text-align: center; 
     }
@@ -70,8 +153,22 @@
         display: inline; 
     }
 
+    /*Contact Properties*/
+    #lname, #fname, #tnumber, #tarea {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    #tarea {
+        height: 250px;
+    }
+
+    #formOutput {                   /*Zeilenumbruch im Kontaktformular*/
+        white-space: pre-line; 
+    }
+
     /*Responsiveness*/
     @media screen and (max-width: 767px) {              /*Momentan nur für Smartphone & Desktop*/
-    main { display: block; }
-    main > section, main div#content { width: 100%; }
+        main { display: block; }
+        main > section, main div#content { width: 100%; }
     }

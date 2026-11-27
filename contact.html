@@ -14,7 +14,7 @@
   <!--Header-->
   <section>
     <a href="index.html">
-|     <img src="logo.png" alt="Logo der Non-Profit Organisation" height="100">
+     <img id="logo" src="logo.png" alt="Logo der Non-Profit Organisation">
     </a>
     <header>
         <nav>
@@ -25,8 +25,8 @@
               </form>
               <p id="searchResult"></p>
             </li>
-            <li><a href="https://www.instagram.com/WebAppStartup">Instagram</a></li>
-            <li><a href="https://www.facebook.com/WebAppStartup">Facebook</a></li>
+            <li><a href="https://www.instagram.com/ZentralbürofürPlanetareAbkühlung">Instagram</a></li>
+            <li><a href="https://www.facebook.com/ZentralbürofürPlanetareAbkühlung">Facebook</a></li>
             <li><b>Kontakt</b></li>
             <li><button onclick="setdirection('ltr')">Deutsch</button></li>
             <li><button onclick="setdirection('rtl')">Arabisch</button></li>
@@ -40,10 +40,11 @@
 
   <!--Navigation-->
   <section>
-    <h1>Navigation</h1>
-      <nav id="mainnavigation" dir="ltr">
+    <h3>Navigation</h3>
+      <nav id="mainNavigation" dir="ltr">
         <ul>
           <li><a href="index.html">Startseite</a></li>
+          <li><a href="index.html#startArea">Einleitung</a></li>
           <li><a href="index.html#emissionCountry">CO₂-Emissionen von Ländern</a></li>
           <li><a href="index.html#emissionCompany">CO₂-Emissionen von Unternehmen</a></li>
           <li><a href="index.html#aboutUs">Über uns</a></li>
@@ -57,15 +58,45 @@
 
     <!--Intro-->
     <section id="contactArea">
-      <h1>Kontatk</h1>
-        <p id="placeholder">
-          Dies ist ein Platzhalter
+      <h1>Kontakt</h1>
+        <p>
+          Schreiben Sie uns eine Nachricht über das untenstehende Formular und wählen Sie 
+          gegebenenfalls aus, ob wir Sie zurückrufen dürfen.
+          <br>
+          Wir melden uns schnellstmöglich bei Ihnen zurück!
       </p>
+      <form id="contactForm">
+        <label for="fname">Vorname*</label><br>
+        <input type="text" id="fname" name="fname" maxlength="50" required><br>
+        <label for="lname">Nachname*</label><br>
+        <input type="text" id="lname" name="lname" maxlength="50" required><br>
+        <label for="tnumber">Telefonnummer</label><br>
+        <input type="tel" id="tnumber" name="tnumber" maxlength="25"><br>         <!--Input Type "tel" für aufrufen der Telefontastatur-->
+        <br><br>
+        <p>
+          Dürfen wir Sie bei Rückfragen unter der angegebenen Telefonnummer zurückrufen?
+        </p>
+        <input type="radio" id="callYes" name="callback" value="Ja">
+        <label for="callYes">Ja</label><br>
+        <input type="radio" id="callNo" name="callback" value="Nein">
+        <label for="callNo">Nein</label><br>
+        <br>
+        <label for="tarea">Ihre Nachricht an uns*</label><br>
+        <textarea id="tarea" name="tarea" maxlength="1000" required></textarea>
+        <br>
+        <button type="submit">Absenden</button>
+      </form>
+        <p id="formOutput" role="status"></p>
+        <br>
+        <p>
+          Felder, die mit einem Stern (*) markiert sind, sind Pflichtfelder.
+        </p>
     </section>
 
+
+    
     <!--Footer-->
   <section id="furtherInformation">
-    <h1>Footer</h1>
     <footer>
       <nav>
         <ul>

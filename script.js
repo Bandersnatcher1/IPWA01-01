@@ -1,4 +1,20 @@
     
+    //Funktion zum Speichern von Einstellungen (Schriftkultur)
+    function setdirection(direction) {
+        localStorage.setItem("pageDirection", direction);
+        applyDirection();
+    }
+
+    function applyDirection() {
+        const savedDirection = localStorage.getItem("pageDirection") || "ltr";
+        const nav = document.getElementById("mainNavigation");
+        if (nav) {
+            nav.setAttribute("dir", savedDirection);
+        }
+    }
+
+    applyDirection();
+    
     //Suchfunktion Header
     function handleHeaderSearch(event) {
         event.preventDefault();                                                                 //Verhindert, dass die Seite bei Absenden der Suche neu lädt
@@ -68,8 +84,11 @@
 
     function connectHeaders(tableId) {
       const table = document.getElementById(tableId);           //Liest die ID der Tabelle aus und speichert sie in "table"
-      const headers = table.querySelectorAll("thead th");       //Sucht alle Spaltenüberschriften aus dem Tabellenkopf und speichert sie in einer Liste
+      if (!table) {
+        return;
+      }
 
+      const headers = table.querySelectorAll("thead th");       //Sucht alle Spaltenüberschriften aus dem Tabellenkopf und speichert sie in einer Liste
       headers.forEach((header, index) => {                       //Für jede Tabellenüberschrift wird die Funktion ausgeführt und es werden die Überschrift und die Indexnummer gesetzt
         header.addEventListener("click", () => {                //Fügt der Tabellenüberschrift die Klick-Funktion hinzu
           sortTable(tableId, index);                            
@@ -85,9 +104,40 @@
       return parseFloat(text.replace(/\./g, "").replace(",", "."));   //Entfernt alle Punkte und Kommas aus den Zahlen un Texten. Mit parseFloat wird der bereinigte Text in Zahlen umgewandelt, bei reinem Text ohne Ziffern wird nichts gemacht (NaN)
     }
 
-    //Schriftkultur (Test)
-    function setdirection(richtung) {
-      // Greift gezielt nur die Navigation anhand ihrer ID an
-      const nav = document.getElementById('mainnavigation');
-      nav.setAttribute('dir', richtung);
+    //Funktion für Formulareingabe
+    function cleanText(text, maxLength) {
+      return text.trim().slice(0, maxLength).replace(/[<>]/g, "");  //cleanText entfernt spitze Klammern, schneidet Text ab und entfernt Leerzeichen am Rand
+    }
+
+    function cleanPhone(text) {
+      return text.trim().slice(0, 25).replace(/[^0-9+\-\/() ]/g, "");  //Erlaubt nur Ziffern für die Eingabe von Telefonnummern
+    }
+
+    function handleContactForm(event) {
+      event.preventDefault();
+
+      const firstName = cleanText(document.getElementById("fname").value, 50);    
+      const lastName = cleanText(document.getElementById("lname").value, 50);
+      const phone = cleanPhone(document.getElementById("tnumber").value);         //Nur relevant für die Ausgabe des Formulars
+      const message = cleanText(document.getElementById("tarea").value, 1000);
+
+      const status = document.getElementById("formOutput");
+      if (firstName === "" || lastName === "" || message === "") {
+        status.textContent = "Bitte füllen Sie alle Pflichtfelder aus.";
+        return;
+      }
+      status.textContent = "Vielen Dank, Ihre Eingaben wurden geprüft. Bitte beachten Sie, dass keine Nachricht versendet wurde, da es sich nur um eine Simulation handelt.\n\n" +
+      "Ihre Eingaben, die Sie an uns übermittelt haben:\n\n" +
+      "Vorname: " + firstName + "\n" +
+      "Nachname: " + lastName + "\n" +
+      "Telefon: " + (phone || "nicht angegeben") + "\n" +
+      "Nachricht: " + message;
+      event.target.reset();
+    }
+
+    document.getElementById("tarea").addEventListener("submit", handleContactForm);
+
+    const contactForm = document.getElementById("contactForm");
+    if (contactForm) {
+      contactForm.addEventListener("submit", handleContactForm);
     }
