@@ -116,9 +116,9 @@
     function handleContactForm(event) {
       event.preventDefault();
 
-      const firstName = cleanText(document.getElementById("fname").value, 50);    
+      const firstName = cleanText(document.getElementById("fname").value, 50);    //Auch relevant für die Ausgabe des Formulars
       const lastName = cleanText(document.getElementById("lname").value, 50);
-      const phone = cleanPhone(document.getElementById("tnumber").value);         //Nur relevant für die Ausgabe des Formulars
+      const phone = cleanPhone(document.getElementById("tnumber").value);         
       const message = cleanText(document.getElementById("tarea").value, 1000);
 
       const status = document.getElementById("formOutput");
@@ -126,7 +126,7 @@
         status.textContent = "Bitte füllen Sie alle Pflichtfelder aus.";
         return;
       }
-      status.textContent = "Vielen Dank, Ihre Eingaben wurden geprüft. Bitte beachten Sie, dass keine Nachricht versendet wurde, da es sich nur um eine Simulation handelt.\n\n" +
+      status.textContent = "\n" +"Vielen Dank, Ihre Eingaben wurden geprüft. Bitte beachten Sie, dass keine Nachricht versendet wurde, da es sich nur um eine Simulation handelt.\n\n" +
       "Ihre Eingaben, die Sie an uns übermittelt haben:\n\n" +
       "Vorname: " + firstName + "\n" +
       "Nachname: " + lastName + "\n" +

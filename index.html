@@ -84,7 +84,7 @@
           <!--onkeyup: Filtert Tabelle in Echtzeit via Funktion sobald eine Eingabe gemacht u. d. Taste auf der Tastatur gedrpückt wurde-->
           <!--Class referenziert zur CSS-Datei und legt den Style der Suchleiste fest-->
     <div class="table-wrapper">
-    <table id="countryTable">
+    <table id="countryTable" class="table table-striped">
         <thead>
           <tr>
             <th>Land</th>
@@ -162,7 +162,7 @@
       <!--Suchfeld für die zweite Tabelle-->
       <input type="text" id="searchCompany" maxlength="50" class="companySearchField" oninput="filterTable('companyTable', 'searchCompany')" placeholder="Tabelle durchsuchen...">
         <div class="table-wrapper">
-        <table id="companyTable">
+        <table id="companyTable" class="table table-striped">
           <thead>
             <tr>
               <th>Unternehmen</th>
